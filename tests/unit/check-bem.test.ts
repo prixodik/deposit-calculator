@@ -33,3 +33,12 @@ describe('проверка БЭМ: служебные селекторы', () =>
     expect(проверитьФайл('a.css', ":root { --a: 1 }\n:root[data-theme='dark'] { --a: 2 }")).toEqual([])
   })
 })
+
+describe('проверка БЭМ: привязанные классы', () => {
+  it('проверяет строковые литералы в :class и не принимает выражения за классы', () => {
+    const верно = `<template><p class="a" :class="{ 'a--on': ok, 'a--off': !ok }"/></template>`
+    expect(проверитьФайл('a.vue', верно)).toEqual([])
+    const неверно = `<template><p :class="{ 'aOn': ok }"/></template>`
+    expect(проверитьФайл('a.vue', неверно)).toHaveLength(1)
+  })
+})

@@ -1,12 +1,20 @@
 <script setup lang="ts">
 import AppHeader from './components/AppHeader.vue'
+import DepositForm from './components/DepositForm.vue'
+import { createDefaults, useDeposit } from './composables/useDeposit'
+import { readState, useUrlState } from './composables/urlState'
+
+const deposit = useDeposit(readState(location.search, createDefaults()))
+useUrlState(deposit.state)
 </script>
 
 <template>
   <div class="app">
     <AppHeader />
     <main class="app__main">
-      <section class="app__form" aria-label="Параметры вклада"></section>
+      <section class="app__form" aria-label="Параметры вклада">
+        <DepositForm v-model="deposit.state.value" :issues="deposit.issues.value" />
+      </section>
       <section class="app__results" aria-label="Результаты расчёта"></section>
     </main>
   </div>
