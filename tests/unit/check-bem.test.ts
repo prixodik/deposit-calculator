@@ -27,3 +27,9 @@ describe('проверка БЭМ', () => {
     expect(проверитьФайл('a.css', '.form p { color: red }')).toHaveLength(1)
   })
 })
+
+describe('проверка БЭМ: служебные селекторы', () => {
+  it('допускает переменные темы на корне', () => {
+    expect(проверитьФайл('a.css', ":root { --a: 1 }\n:root[data-theme='dark'] { --a: 2 }")).toEqual([])
+  })
+})

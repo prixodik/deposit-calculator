@@ -40,7 +40,7 @@ const пары: [string, string, number][] = [
 describe('Контраст токенов (WCAG AA)', () => {
   for (const [тема, селектор] of [
     ['светлая', ':root'],
-    ['тёмная', ':root[data-theme="dark"]'],
+    ['тёмная', ":root[data-theme='dark']"],
   ] as const) {
     it(`${тема} тема: все пары не ниже порога`, () => {
       const v = переменные(селектор)
