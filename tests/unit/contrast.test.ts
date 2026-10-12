@@ -8,7 +8,13 @@ function переменные(селектор: string): Record<string, string> 
   const начало = css.indexOf(селектор + ' {')
   expect(начало, `нет блока ${селектор}`).toBeGreaterThanOrEqual(0)
   const тело = css.slice(css.indexOf('{', начало) + 1, css.indexOf('}', начало))
-  return Object.fromEntries([...тело.matchAll(/--([a-z0-9-]+):\s*([^;]+);/g)].map((m) => [m[1]!, m[2]!.trim()]))
+  const все = Object.fromEntries([...тело.matchAll(/--([a-z0-9-]+):\s*([^;]+);/g)].map((m) => [m[1]!, m[2]!.trim()]))
+  // Токен может ссылаться на другой токен того же блока: var(--имя).
+  for (const [имя, значение] of Object.entries(все)) {
+    const ссылка = /^var\(--([a-z0-9-]+)\)$/.exec(значение)
+    if (ссылка && все[ссылка[1]!]) все[имя] = все[ссылка[1]!]!
+  }
+  return все
 }
 
 function яркость(hex: string): number {
