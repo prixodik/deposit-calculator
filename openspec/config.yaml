@@ -5,12 +5,14 @@ context: |
   All artifacts must be written in ru.
   Keep OpenSpec structural headings and SHALL/MUST keywords in English.
 
-  Project: deposit-calculator — калькулятор выплат по банковскому депозиту.
-  Stack: Python 3.12+, pytest, стандартная библиотека decimal для всех денежных расчётов
-  (float для денег запрещён).
-  Process: spec-driven (OpenSpec) → tests first (TDD) → implementation.
-  Актуальную документацию библиотек проверять через context7, а не по памяти.
-  Commits: Conventional Commits, мелкие и осмысленные.
+  Проект: deposit-calculator — веб-калькулятор выплат по банковскому вкладу.
+  Стек: Vue 3, TypeScript, Vite, Vitest, Playwright; деньги считать только через decimal.js
+  (двоичные числа с плавающей запятой для денег запрещены).
+  Процесс: спецификация (OpenSpec) → тесты до кода → реализация.
+  Актуальную документацию библиотек сверять через context7, а не по памяти.
+  Весь текст интерфейса и документов — на русском; английский только там, где без него нельзя
+  (ключевые слова OpenSpec, имена пакетов, идентификаторы в коде).
+  Коммиты: мелкие, осмысленные, сообщения на русском.
 
 # Per-artifact rules (optional)
 # Add custom rules for specific artifacts.
