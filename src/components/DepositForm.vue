@@ -263,7 +263,7 @@ function onAmountBlur(event: Event) {
 
 .deposit-form__segment {
   min-width: 72px;
-  min-height: 36px;
+  min-height: var(--size-touch);
   padding: 0 var(--space-3);
   border: 0;
   border-radius: 6px;
@@ -290,8 +290,8 @@ function onAmountBlur(event: Event) {
 .deposit-form__toggle {
   position: relative;
   flex: none;
-  width: 52px;
-  height: 30px;
+  width: 64px;
+  height: var(--size-touch);
   margin: 0;
   border: 1px solid var(--color-border-strong);
   border-radius: 999px;
@@ -304,10 +304,10 @@ function onAmountBlur(event: Event) {
 .deposit-form__toggle::after {
   content: '';
   position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 22px;
-  height: 22px;
+  top: 4px;
+  left: 4px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   background: var(--color-text-muted);
   transition: transform var(--duration-fast), background-color var(--duration-fast);
@@ -320,7 +320,7 @@ function onAmountBlur(event: Event) {
 
 .deposit-form__toggle:checked::after {
   background: var(--color-accent-contrast);
-  transform: translateX(22px);
+  transform: translateX(20px);
 }
 
 .deposit-form__switch-label {
