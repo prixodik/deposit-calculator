@@ -86,3 +86,12 @@ describe('Расчёт с некорректными параметрами', ()
     expect(() => calculate(параметры({ rate: -1 }))).toThrowError(/Ставка/)
   })
 })
+
+describe('Входные параметры вклада', () => {
+  it('Капитализация по умолчанию выключена', () => {
+    const { capitalize: _не_задан, ...без } = параметры({})
+    const итог = calculate(без as DepositParams)
+    expect(итог.totals.paid.toFixed(2)).toBe('12000.00')
+    expect(итог.totals.closingBalance.toFixed(2)).toBe('100000.00')
+  })
+})
