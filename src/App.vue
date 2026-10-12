@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import AppHeader from './components/AppHeader.vue'
 import DepositForm from './components/DepositForm.vue'
+import ResultsView from './components/ResultsView.vue'
 import { createDefaults, useDeposit } from './composables/useDeposit'
 import { readState, useUrlState } from './composables/urlState'
 
@@ -15,7 +16,9 @@ useUrlState(deposit.state)
       <section class="app__form" aria-label="Параметры вклада">
         <DepositForm v-model="deposit.state.value" :issues="deposit.issues.value" />
       </section>
-      <section class="app__results" aria-label="Результаты расчёта"></section>
+      <section class="app__results" aria-label="Результаты расчёта">
+        <ResultsView :schedule="deposit.schedule.value" :stale="deposit.stale.value" />
+      </section>
     </main>
   </div>
 </template>
