@@ -6,7 +6,8 @@ on:
     branches: [main]
 
 jobs:
-  проверки:
+  checks:
+    name: Проверки
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
