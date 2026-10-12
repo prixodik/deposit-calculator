@@ -7,8 +7,15 @@ const КЛАСС = /^[a-z][a-z0-9]*(?:-[a-z0-9]+)*(?:__[a-z][a-z0-9]*(?:-[a-z0-9
 
 export function классыИзШаблона(текст) {
   const найдено = []
-  for (const м of текст.matchAll(/\bclass="([^"]*)"/g)) {
+  // Статические классы: class="a b"
+  for (const м of текст.matchAll(/(?<![:\w-])class="([^"]*)"/g)) {
     for (const имя of м[1].split(/\s+/).filter(Boolean)) найдено.push(имя)
+  }
+  // Привязанные классы: :class="{ 'a': условие }" — берём все строковые литералы в одинарных кавычках
+  for (const м of текст.matchAll(/(?:v-bind)?:class="([^"]*)"/g)) {
+    for (const л of м[1].matchAll(/'([^']*)'/g)) {
+      for (const имя of л[1].split(/\s+/).filter(Boolean)) найдено.push(имя)
+    }
   }
   return найдено
 }
