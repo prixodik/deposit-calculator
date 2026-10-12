@@ -1,0 +1,81 @@
+/* Дизайн-токены. Все цвета, отступы, радиусы, тени и шрифты берутся только отсюда. */
+:root {
+  /* Цвета: светлая тема */
+  --color-bg: #f4f6fb;
+  --color-surface: #ffffff;
+  --color-surface-2: #eef1f8;
+  --color-border: #dde2ee;
+  --color-border-strong: #7b86a1;
+  --color-text: #0f172a;
+  --color-text-muted: #4b5670;
+  --color-accent: #4338ca;
+  --color-accent-hover: #3730a3;
+  --color-accent-contrast: #ffffff;
+  --color-accent-soft: #e8e9fd;
+  --color-positive: #047857;
+  --color-danger: #b91c1c;
+  --color-danger-soft: #fdecec;
+  --color-focus: #4338ca;
+  --color-chart-balance: #4338ca;
+  --color-chart-paid: #047857;
+  --color-chart-grid: #dde2ee;
+
+  /* Отступы */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  /* Скругления и тени */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --shadow-card: 0 1px 2px rgb(15 23 42 / 6%), 0 8px 24px rgb(15 23 42 / 6%);
+
+  /* Типографика */
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.75rem;
+  --font-size-hero: clamp(1.75rem, 1.2rem + 2.4vw, 2.75rem);
+  --line-height: 1.5;
+
+  /* Размеры и анимация */
+  --size-touch: 44px;
+  --content-width: 1200px;
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+}
+
+:root[data-theme='dark'] {
+  --color-bg: #0b1020;
+  --color-surface: #141b30;
+  --color-surface-2: #1b2440;
+  --color-border: #2a3552;
+  --color-border-strong: #7683a3;
+  --color-text: #e8ecf8;
+  --color-text-muted: #a6b1cc;
+  --color-accent: #8b93ff;
+  --color-accent-hover: #a5acff;
+  --color-accent-contrast: #0b1020;
+  --color-accent-soft: #232b57;
+  --color-positive: #34d399;
+  --color-danger: #f87171;
+  --color-danger-soft: #3a1c26;
+  --color-focus: #a5acff;
+  --color-chart-balance: #8b93ff;
+  --color-chart-paid: #34d399;
+  --color-chart-grid: #2a3552;
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 40%), 0 8px 24px rgb(0 0 0 / 35%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-normal: 0ms;
+  }
+}

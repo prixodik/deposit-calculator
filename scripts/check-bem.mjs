@@ -21,7 +21,7 @@ export function селекторыИзСтилей(текст) {
     if (!предыдущее || предыдущее.startsWith('@')) continue
     for (const селектор of предыдущее.split(',').map((s) => s.trim())) {
       // допускаются :root, html, body, * и псевдоклассы/псевдоэлементы после одного класса
-      if (/^(:root|html|body|\*|\*::before|\*::after|\[data-theme="[a-z]+"\])$/.test(селектор)) continue
+      if (/^(:root|html|body|\*|\*::before|\*::after|:focus-visible|\[data-theme=["'][a-z]+["']\]|:root\[data-theme=["'][a-z]+["']\])$/.test(селектор)) continue
       const разбор = /^\.([A-Za-z0-9_-]+)((?::{1,2}[a-z-]+(?:\([^)]*\))?)*)$/.exec(селектор)
       if (!разбор) {
         ошибки.push(`Селектор «${селектор}»: допускается один класс без вложенности`)
