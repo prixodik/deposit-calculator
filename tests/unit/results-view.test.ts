@@ -98,13 +98,17 @@ describe('Результаты', () => {
     await w.get('[data-action="download-csv"]').trigger('click')
     await flushPromises()
     expect(файл).toBeInstanceOf(Blob)
-    const содержимое = await new Response(файл).text()
+    const содержимое = await new Promise<string>((resolve) => {
+      const чтение = new FileReader()
+      чтение.onload = () => resolve(String(чтение.result))
+      чтение.readAsText(файл as Blob)
+    })
     expect(содержимое.split('\r\n').filter(Boolean)).toHaveLength(13)
     expect(содержимое).toContain('1000,00')
   })
 
   it('Все числа в результатах отформатированы', () => {
     const w = mount(ResultsView, { props: { schedule: вклад({ capitalize: true }), stale: false }, ...заглушки })
-    expect(текст(w)).not.toMatch(/NaN|undefined|\d\.\d{2}\b/)
+    expect(текст(w)).not.toMatch(/NaN|undefined|(?<![.\d])\d+\.\d{2}(?![.\d])/)
   })
 })
