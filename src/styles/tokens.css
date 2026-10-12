@@ -15,8 +15,8 @@
   --color-positive: #047857;
   --color-danger: #b91c1c;
   --color-danger-soft: #fdecec;
-  --color-focus: #4338ca;
-  --color-chart-balance: #4338ca;
+  --color-focus: var(--color-accent);
+  --color-chart-balance: var(--color-accent);
   --color-chart-paid: #047857;
   --color-chart-grid: #dde2ee;
 
@@ -66,8 +66,8 @@
   --color-positive: #34d399;
   --color-danger: #f87171;
   --color-danger-soft: #3a1c26;
-  --color-focus: #a5acff;
-  --color-chart-balance: #8b93ff;
+  --color-focus: var(--color-accent);
+  --color-chart-balance: var(--color-accent);
   --color-chart-paid: #34d399;
   --color-chart-grid: #2a3552;
   --shadow-card: 0 1px 2px rgb(0 0 0 / 40%), 0 8px 24px rgb(0 0 0 / 35%);

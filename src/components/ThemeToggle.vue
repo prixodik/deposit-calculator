@@ -32,6 +32,7 @@ const label = computed(() => (theme.value === 'dark' ? 'Включить све�
 <style>
 .theme-toggle {
   display: inline-flex;
+  flex: none;
   align-items: center;
   justify-content: center;
   width: var(--size-touch);

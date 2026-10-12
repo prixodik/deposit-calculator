@@ -24,3 +24,7 @@ jobs:
         run: npm test
       - name: Сборка
         run: npm run build
+      - name: Установка браузера для сквозных тестов
+        run: npx playwright install --with-deps chromium
+      - name: Сквозные тесты
+        run: npm run test:e2e

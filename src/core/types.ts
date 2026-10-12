@@ -13,7 +13,7 @@ export interface DepositParams {
   /** Дата открытия в формате ГГГГ-ММ-ДД. */
   startDate: string
   frequency: Frequency
-  capitalize: boolean
+  capitalize?: boolean
 }
 
 export type ParamField = 'amount' | 'rate' | 'months' | 'startDate' | 'frequency'
